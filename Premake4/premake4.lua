@@ -61,12 +61,17 @@ if not premake4_premake_lua then
 
     function setkinds()
         configuration "ReleaseShared or DebugShared"
-            kind "SharedLib"
+            local k = "SharedLib"
+            kind(k) 
+            project().kind = k
         configuration "ReleaseStatic or DebugStatic"
-            kind "StaticLib"
+            local k = "StaticLib"
+            kind(k) 
+            project().kind = k
     end
 
     function setflags()
+        flags { "NoEditAndContinue" }
         configuration "Release*"
             flags { "Optimize" }
             defines { "NDEBUG" }
