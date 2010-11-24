@@ -40,7 +40,7 @@ project "zlib"
                                  "/" .. sourcedir() .. ".tar.gz"))
 
     configuration "vs20*"
-        defines { "_CRT_SECURE_NO_DEPRECATE", "_CRT_NONSTDC_NO_DEPRECATE" }
+        defines { "_CRT_NONSTDC_NO_DEPRECATE" }
         resdefines "WIN32"
         linkoptions { 
             --

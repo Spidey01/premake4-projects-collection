@@ -71,12 +71,16 @@ if not premake4_premake_lua then
     end
 
     function setflags()
+
         flags { "NoEditAndContinue" }
+
         configuration "Release*"
             flags { "Optimize" }
             defines { "NDEBUG" }
         configuration "Debug*"
             flags { "Symbols" }
+        configuration "vs20*"
+            defines { "_CRT_SECURE_NO_WARNINGS" }
 
         local cfgs = configurations()
 
