@@ -138,8 +138,10 @@ if not premake4_extensions_lua then
                     elseif os.isdir(header) then
                         error("headers() doesn't do directories yet, sorry chap!")
                     else
-                        error("You can't use headers() to copy a " ..
-                               type(header))
+                        error("You can't use headers() to copy a type of " ..
+                              type(header) .. " with value " .. header ..
+                              " If that makes no sense, you forgot to " ..
+                              "unpack the source code!")
                     end
                 end
             end
