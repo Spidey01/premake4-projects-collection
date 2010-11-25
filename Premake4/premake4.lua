@@ -88,11 +88,15 @@ if not premake4_premake_lua then
         for c=1, #cfgs do
             local cfg = cfgs[c]
             configuration { cfg }
-                includedirs(    path.join(DIST_DIR, path.join(cfg, "include")))
-                libdirs(        path.join(DIST_DIR, path.join(cfg, "bin")))
-                targetdir(      path.join(DIST_DIR, path.join(cfg, "bin")))
-                implibdir(      path.join(DIST_DIR, path.join(cfg, "lib")))
-                objdir(         BUILD_DIR)
+                do
+                    local cfgdir = path.join(DIST_DIR, cfg)
+
+                    includedirs(    path.join(cfgdir, "include"))
+                    libdirs(        path.join(cfgdir, "bin"))
+                    targetdir(      path.join(cfgdir, "bin"))
+                    implibdir(      path.join(cfgdir, "lib"))
+                    objdir(         BUILD_DIR)
+                end
         end
     end
 
