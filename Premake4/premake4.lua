@@ -92,7 +92,7 @@ if not premake4_premake_lua then
                 libdirs(        path.join(DIST_DIR, path.join(cfg, "bin")))
                 targetdir(      path.join(DIST_DIR, path.join(cfg, "bin")))
                 implibdir(      path.join(DIST_DIR, path.join(cfg, "lib")))
-                objdir(         path.join(BUILD_DIR, cfg))
+                objdir(         BUILD_DIR)
         end
     end
 
