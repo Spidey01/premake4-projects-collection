@@ -80,6 +80,9 @@ if not premake4_extensions_lua then
     -- Works like files() but paths are relative to sourcedir()
     --
     function sources(t)
+        assert(project().sourcedir,
+               "must set sourcedir() before using sources()")
+
         local f = {}
         local s = project().sourcedir
 

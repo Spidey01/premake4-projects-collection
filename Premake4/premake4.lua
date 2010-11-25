@@ -26,6 +26,11 @@
 if not premake4_premake_lua then
     premake4_premake_lua = 1
 
+    assert(solution(),
+           "must have a solution before including Premake4/premake4.lua")
+    assert(not project(),
+           "cannot include Premake4/premake4.lua in a project!")
+
     --
     -- Everything in the repository should build in each of these
     -- configurations.
