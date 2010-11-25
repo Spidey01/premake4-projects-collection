@@ -76,6 +76,9 @@ if not premake4_extensions_lua then
         return p.sourcedir
     end
 
+    --
+    -- Works like files() but paths are relative to sourcedir()
+    --
     function sources(t)
         local f = {}
         local s = project().sourcedir
