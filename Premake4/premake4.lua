@@ -62,7 +62,12 @@ if not premake4_premake_lua then
 
     -- Some compilers need this.
     --      TODO what about _WIN64 ?
-    if os.is("windows") then defines "_WIN32" end
+    if os.is("windows") then
+        defines {
+            "_WIN32",
+            "WIN32",    -- some projects use this instead of compiler specifics
+        }
+    end
 
     function setkinds()
         configuration "ReleaseShared or DebugShared"
