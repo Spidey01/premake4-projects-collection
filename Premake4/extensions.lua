@@ -59,6 +59,8 @@ if not premake4_extensions_lua then
     --
     -- @usage sourceforge("foo", "foo/foo-1.2.3.tar.gz");
     --
+    -- this function isn't really all that useful IMHO -- Spidey01
+    --
     function sourceforge(unixname, filename)
         return "https://sourceforge.net/projects/" ..  unixname ..
                "/files/" .. filename

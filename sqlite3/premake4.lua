@@ -40,5 +40,23 @@ project "sqlite3"
 
     includedirs { sourcedir() }
 
+    defines {
+        -- these are in the def's file they give in one of their MSVC packages
+        -- so may as well enable them for all builds.
+        "SQLITE_ENABLE_COLUMN_METADATA",
+        "SQLITE_ENABLE_RTREE"
+    }
+
+    configuration "vs20*"
+        -- ugh, between MS and SQLite3 we need a def's file.  Which is _NOT_ in
+        -- the source package we're reccomended to use!
+        linkoptions { 
+            "/DEF:" .. '"' ..
+              path.getdirectory(string.sub(debug.getinfo(1).source, 2)) .. 
+              "/" .. "sqlite3.def" ..
+            '"'
+        }
+
+
     setkinds()
     setflags()
